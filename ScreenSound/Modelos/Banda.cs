@@ -1,9 +1,11 @@
-﻿namespace ScreenSound.Modelos;
+﻿using System.ComponentModel.Design;
 
-class Banda
+namespace ScreenSound.Modelos;
+
+internal class Banda
 {
     private List<Album> albuns = new List<Album>();
-    private List<int> notas = new List<int>();
+    private List<Avaliacao> notas = new List<Avaliacao>();
 
     public Banda(string nome)
     {
@@ -11,7 +13,16 @@ class Banda
     }
 
     public string Nome { get; }
-    public double Media => notas.Average();
+    //if: Vai verificar se não tem nenhuma avaliação na lista. Se não tiver vai retornar q a Media é 0
+    //else:Ele vai percorrer a lista de avaliações e pegar a propriedade nota de cada uma, e por fim vai tirar a media
+    public double Media
+    {
+        get
+        {
+            if(notas.Count == 0) return 0;
+            else return notas.Average(a => a.Nota);
+        }
+    }
     public List<Album> Albuns => albuns;
 
     public void AdicionarAlbum(Album album) 
@@ -19,7 +30,7 @@ class Banda
         albuns.Add(album);
     }
 
-    public void AdicionarNota(int nota)
+    public void AdicionarNota(Avaliacao nota)
     {
         notas.Add(nota);
     }

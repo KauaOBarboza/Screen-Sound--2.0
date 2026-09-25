@@ -109,6 +109,6 @@ Este projeto faz parte dos estudos de **C# e Programação Orientada a Objetos**
 
 ## Autor
 
-**Kauã Oliveira**
+**Kauã Oliveira Barboza**
 
 Projeto desenvolvido para fins de estudo.
